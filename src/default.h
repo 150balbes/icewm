@@ -186,8 +186,8 @@ XSV(const char *, terminalCommand,              "xterm")
 XSV(const char *, logoutCommand,                0)
 XSV(const char *, logoutCancelCommand,          0)
 #if defined(__linux__)
-XSV(const char *, shutdownCommand,              "/bin/sh -c \"{ test -e /run/systemd/system && systemctl poweroff; } ||:\"")
-XSV(const char *, rebootCommand,                "/bin/sh -c \"{ test -e /run/systemd/system && systemctl reboot; } ||:\"")
+XSV(const char *, shutdownCommand,              "/bin/sh -c \"{ test -e /run/systemd/system && systemctl poweroff; } || poweroff\"")
+XSV(const char *, rebootCommand,                "/bin/sh -c \"{ test -e /run/systemd/system && systemctl reboot; } || reboot\"")
 #else
 XSV(const char *, shutdownCommand,              0)
 XSV(const char *, rebootCommand,                0)
@@ -196,11 +196,11 @@ XIV(int, taskBarCPUDelay,                       500)
 XIV(int, taskBarMEMDelay,                       500)
 XIV(int, taskBarNetSamples,                     20)
 XIV(int, taskBarNetDelay,                       500)
-XSV(const char *, cpuCommand,                   "xterm -name top -title Process\\ Status -e top")
+XSV(const char *, cpuCommand,                   "xterm -name top -title 'Process Status' -e 'if [ -x /usr/bin/htop ]; then htop; else top; fi'")
 XSV(const char *, cpuClassHint,                 "top.XTerm")
-XSV(const char *, netCommand,                   "xterm -name netstat -title 'Network Status' -e netstat -c")
-XSV(const char *, netClassHint,                 "netstat.XTerm")
-XSV(const char *, netDevice,                    "eth0 wlan0")
+XSV(const char *, netCommand,                   "xterm -name iftop -title 'Network Status' -e iftop")
+XSV(const char *, netClassHint,                 "iftop.XTerm")
+XSV(const char *, netDevice,                    "eth0 wlan0 ppp0")
 XSV(const char *, addressBarCommand,            0)
 #ifdef CONFIG_I18N
 XSV(const char *, fmtTime,                      "%X")
@@ -217,7 +217,7 @@ XSV(const char *, fmtDate,                      "%Y-%m-%d %H:%M:%S %z %B %A")
 cfoption icewm_preferences[] = {
     OBV("ClickToFocus",                         &clickFocus,                    "Focus windows by clicking"),
     OBV("FocusOnAppRaise",                      &focusOnAppRaise,               "Focus windows when application requests to raise"),
-    OBV("RequestFocusOnAppRaise",                      &requestFocusOnAppRaise,               "Request focus (flashing in taskbar) when application requests raise"),
+    OBV("RequestFocusOnAppRaise",               &requestFocusOnAppRaise,        "Request focus (flashing in taskbar) when application requests raise"),
     OBV("RaiseOnFocus",                         &raiseOnFocus,                  "Raise windows when focused"),
     OBV("FocusOnClickClient",                   &focusOnClickClient,            "Focus window when client area clicked"),
     OBV("RaiseOnClickClient",                   &raiseOnClickClient,            "Raise window when client area clicked"),
@@ -245,12 +245,9 @@ cfoption icewm_preferences[] = {
     OBV("ShowMoveSizeStatus",                   &showMoveSizeStatus,            "Show position status window during move/resize"),
     OBV("ShowWorkspaceStatus",                  &workspaceSwitchStatus,         "Show name of current workspace while switching"),
     OBV("MinimizeToDesktop",                    &minimizeToDesktop,             "Display mini-icons on desktop for minimized windows"),
-    OBV("MiniIconsPlaceHorizontal",             &miniIconsPlaceHorizontal,
-"Place the mini-icons horizontal instead of vertical"),
-    OBV("MiniIconsRightToLeft",                 &miniIconsRightToLeft,
-"Place new mini-icons from right to left"),
-    OBV("MiniIconsBottomToTop",                 &miniIconsBottomToTop,
-"Place new mini-icons from bottom to top"),
+    OBV("MiniIconsPlaceHorizontal",             &miniIconsPlaceHorizontal,      "Place the mini-icons horizontal instead of vertical"),
+    OBV("MiniIconsRightToLeft",                 &miniIconsRightToLeft,          "Place new mini-icons from right to left"),
+    OBV("MiniIconsBottomToTop",                 &miniIconsBottomToTop,          "Place new mini-icons from bottom to top"),
     OBV("StrongPointerFocus",                   &strongPointerFocus,            "Always maintain focus under mouse window (makes some keyboard support non-functional or unreliable"),
     OBV("OpaqueMove",                           &opaqueMove,                    "Opaque window move"),
     OBV("OpaqueResize",                         &opaqueResize,                  "Opaque window resize"),
@@ -310,7 +307,7 @@ cfoption icewm_preferences[] = {
     OBV("TaskBarShowTray",                      &taskBarShowTray,               "Show windows in the tray"),
     OBV("TrayShowAllWindows",                   &trayShowAllWindows,            "Show windows from all workspaces on tray"),
 #endif
-    OBV("TaskBarShowTransientWindows",                &taskBarShowTransientWindows,         "Show transient (dialogs, ...) windows on task bar"),
+    OBV("TaskBarShowTransientWindows",          &taskBarShowTransientWindows,   "Show transient (dialogs, ...) windows on task bar"),
     OBV("TaskBarShowAllWindows",                &taskBarShowAllWindows,         "Show windows from all workspaces on task bar"),
     OBV("TaskBarShowWindowIcons",               &taskBarShowWindowIcons,        "Show icons of windows on the task bar"),
     OBV("TaskBarShowStartMenu",                 &taskBarShowStartMenu,          "Show 'Start' menu on task bar"),
