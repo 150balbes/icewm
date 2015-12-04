@@ -37,8 +37,6 @@ Source15: icewm_reboot
 Source16: icewm_restart
 Source17: icewm_startup
 
-Patch0: %name-%version-%release.patch
-
 BuildRequires(pre): rpm-macros-cmake
 # Automatically added by buildreq on Sat Apr 11 2015
 BuildRequires: OpenSP cmake gcc-c++ libSM-devel libXext-devel libXft-devel
