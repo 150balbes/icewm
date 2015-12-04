@@ -4,7 +4,7 @@
 %def_with menu
 %define gitrev .gitd490895
 
-Name: %realname-x-githubmod
+Name: %realname
 Version: 1.3.11
 Release: alt8.1
 
