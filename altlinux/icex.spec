@@ -5,7 +5,7 @@
 
 Name: %realname-x-githubmod
 Version: 1.3.11
-Release: alt8
+Release: alt8.1
 
 Summary: X11 Window Manager
 Group: Graphical desktop/Icewm
@@ -159,7 +159,7 @@ rm -rf %buildroot/%_datadir/xsessions
 %doc AUTHORS NEWS README.ALT README.md BUILD/doc/*.html icewm-old-changelog.bz2
 
 %changelog
-* Mon Nov 28 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.11-alt8
+* Mon Nov 28 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.11-alt8.1
 - delete icewm-session
 - add script icewm_logout icewm_reboot icewm_restart icewm_shutdowun icewm_startup
 
