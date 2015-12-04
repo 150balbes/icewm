@@ -75,7 +75,7 @@ popd
 pushd BUILD
 %makeinstall_std
 popd
-cp %buildroot%_x11x11dir/%realname/preferences %buildroot%_x11x11dir/%realname/preferences
+#cp %buildroot%_x11x11dir/%realname/preferences %buildroot%_x11x11dir/%realname/preferences
 
 %if_with menu
 mkdir -p %buildroot%_menudir
