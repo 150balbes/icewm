@@ -61,7 +61,6 @@ Recommends: iftop, mutt
 
 %prep
 %setup -n %name
-%patch0 -p1
 
 %build
 %cmake	-DCFGDIR=%_sysconfdir/X11/%realname -DPREFIX=%_prefix \
