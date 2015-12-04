@@ -1,0 +1,4 @@
+copy: altlinux/*
+spec: altlinux/icex.spec
+tar: icewm-1-3-BRANCH:. name=@name@
+diff: icewm-1-3-BRANCH:. icex:. name=@name@-@version@-@release@.patch

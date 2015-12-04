@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+[Desktop Entry]
+Name=Icewm
+Comment=Simple and fast window manger
+Exec=icewm
+Terminal=false
+TryExec=icewm
+Type=Application
+
+[X-Window Manager]
+SessionManaged=true
