@@ -1,5 +1,6 @@
 # -*- mode: rpm-spec; coding: utf-8 -*-
 %define realname icewm
+%define alt altlinux
 %def_with menu
 %define gitrev .gitd490895
 
@@ -19,23 +20,23 @@ Requires: design-%realname >= 1.0-alt6
 Obsoletes: %realname-light < %version-%release
 
 Source0: %name.tar
-Source1: %realname.menu
-Source2: %realname.menu-method
-Source3: %realname-16.png
-Source4: %realname-32.png
-Source5: %realname-48.png
+Source1: %alt/%realname.menu
+Source2: %alt/%realname.menu-method
+Source3: %alt/%realname-16.png
+Source4: %alt/%realname-32.png
+Source5: %alt/%realname-48.png
 
-Source7: IceWM.xpm
-Source8: %realname.wmsession
-Source9: README.ALT
-Source10: %realname.desktop
+Source7: %alt/IceWM.xpm
+Source8: %alt/%realname.wmsession
+Source9: %alt/README.ALT
+Source10: %alt/%realname.desktop
 
-Source12: icewm-old-changelog.bz2
-Source13: icewm_logout
-Source14: icewm_shutdown
-Source15: icewm_reboot
-Source16: icewm_restart
-Source17: icewm_startup
+Source12: %alt/icewm-old-changelog.bz2
+Source13: %alt/icewm_logout
+Source14: %alt/icewm_shutdown
+Source15: %alt/icewm_reboot
+Source16: %alt/icewm_restart
+Source17: %alt/icewm_startup
 
 BuildRequires(pre): rpm-macros-cmake
 # Automatically added by buildreq on Sat Apr 11 2015
