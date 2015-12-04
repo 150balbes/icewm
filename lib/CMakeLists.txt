@@ -9,5 +9,5 @@ endforeach()
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/icewm.desktop DESTINATION "${DATADIR}/xsessions/")
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/icewm-session.desktop DESTINATION "${DATADIR}/xsessions/")
 
-install(DIRECTORY mailbox taskbar icons ledclock themes DESTINATION ${LIBDIR} FILES_MATCHING PATTERN "*" PATTERN "*.in" EXCLUDE)
+install(DIRECTORY mailbox taskbar icons ledclock DESTINATION ${LIBDIR} FILES_MATCHING PATTERN "*" PATTERN "*.in" EXCLUDE)
 
