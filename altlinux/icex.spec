@@ -154,7 +154,7 @@ rm -rf %buildroot/%_datadir/xsessions
 %_pixmapsdir/*
 %_man1dir/*
 
-%doc AUTHORS NEWS README.ALT README.md BUILD/doc/*.html icewm-old-changelog.bz2
+%doc AUTHORS NEWS README.ALT README.md BUILD/doc/*.html icewm-old-changelog
 
 %changelog
 * Mon Nov 28 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.11-alt8.1
