@@ -16,7 +16,7 @@ Packager: Oleg Ivanov <Leo-sp150@yandex.ru>
 
 Provides: %realname = %version-%release
 Provides: %realname-light = %version-%release
-Requires: design-%realname >= 1.0-alt6
+#Requires: design-%realname >= 1.0-alt6
 Obsoletes: %realname-light < %version-%release
 
 Source0: %name.tar
@@ -65,7 +65,7 @@ Recommends: iftop, mutt
 
 %build
 %cmake	-DCFGDIR=%_sysconfdir/X11/%realname -DPREFIX=%_prefix \
-	-DLIBDIR=%_x11x11dir/%realname -DCONFIG_GUIEVENTS=on  \
+	-DLIBDIR=%_datadir/%realname -DCONFIG_GUIEVENTS=on  \
 	-DICESOUND="ALSA,OSS,ESound"
 pushd BUILD
 %make_build
@@ -90,7 +90,7 @@ install -pD -m644 %SOURCE5 %buildroot%_liconsdir/%realname.png
 install -pD -m644 %SOURCE7 %buildroot%_pixmapsdir/IceWM.xpm
 install -pD -m644 %SOURCE8 %buildroot%_sysconfdir/X11/wmsession.d/04IceWM
 install -m644 %SOURCE9 README.ALT
-install -m644 %SOURCE12 icewm-old-changelog.bz2
+install -m644 %SOURCE12 icewm-old-changelog
 
 mkdir -p %buildroot%_sysconfdir/X11/%realname
 
@@ -122,17 +122,17 @@ rm -rf %buildroot/%_datadir/xsessions
 %config(noreplace) %_sysconfdir/menu-methods/*
 %_sysconfdir/X11/wmsession.d/*
 %_bindir/*
-%dir %_x11x11dir/%realname
-%_x11x11dir/%realname/icons
-%_x11x11dir/%realname/ledclock
-%_x11x11dir/%realname/mailbox
-%_x11x11dir/%realname/taskbar
-%_x11x11dir/%realname/keys
-%_x11x11dir/%realname/menu
-%_x11x11dir/%realname/preferences
-%_x11x11dir/%realname/programs
-%_x11x11dir/%realname/toolbar
-%_x11x11dir/%realname/winoptions
+%dir %_datadir/%realname
+%_datadir/%realname/icons
+%_datadir/%realname/ledclock
+%_datadir/%realname/mailbox
+%_datadir/%realname/taskbar
+%_datadir/%realname/keys
+%_datadir/%realname/menu
+%_datadir/%realname/preferences
+%_datadir/%realname/programs
+%_datadir/%realname/toolbar
+%_datadir/%realname/winoptions
 %dir %_sysconfdir/X11/%realname/startup.d
 %dir %_sysconfdir/X11/%realname/logout.d
 %dir %_sysconfdir/X11/%realname/shutdown.d
@@ -158,6 +158,7 @@ rm -rf %buildroot/%_datadir/xsessions
 
 %changelog
 * Mon Nov 28 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.11-alt8.1
+- edit libdir
 - delete icewm-session
 - add script icewm_logout icewm_reboot icewm_restart icewm_shutdowun icewm_startup
 
