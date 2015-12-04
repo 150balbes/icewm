@@ -31,7 +31,7 @@ Source8: %alt/%realname.wmsession
 Source9: %alt/README.ALT
 Source10: %alt/%realname.desktop
 
-Source12: %alt/icewm-old-changelog.bz2
+Source12: %alt/icewm-old-changelog
 Source13: %alt/icewm_logout
 Source14: %alt/icewm_shutdown
 Source15: %alt/icewm_reboot
