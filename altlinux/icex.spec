@@ -2,11 +2,11 @@
 %define realname icewm
 %define alt altlinux
 %def_with menu
-%define gitrev .gitd490895
+##%define gitrev .gitd490895
 
 Name: %realname-x-githubmod
 Version: 1.3.11
-Release: alt8.1
+Release: alt9
 
 Summary: X11 Window Manager
 Group: Graphical desktop/Icewm
@@ -157,6 +157,9 @@ rm -rf %buildroot/%_datadir/xsessions
 %doc AUTHORS NEWS README.ALT README.md BUILD/doc/*.html icewm-old-changelog
 
 %changelog
+* Mon Dec 05 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.11-alt9
+- new version
+
 * Mon Nov 28 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.11-alt8.1
 - edit libdir
 - delete icewm-session
