@@ -6,7 +6,7 @@
 
 Name: %realname-x-githubmod
 Version: 1.3.11
-Release: alt9
+Release: alt9.1
 
 Summary: X11 Window Manager
 Group: Graphical desktop/Icewm
@@ -157,6 +157,9 @@ rm -rf %buildroot/%_datadir/xsessions
 %doc AUTHORS NEWS README.ALT README.md BUILD/doc/*.html icewm-old-changelog
 
 %changelog
+* Mon Dec 05 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.11-alt9.1
+- edit background
+
 * Mon Dec 05 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.11-alt9
 - new version
 
