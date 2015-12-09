@@ -26,7 +26,7 @@ XIV(bool, pointerColormap,                      true)
 XIV(bool, sizeMaximized,                        false)
 XIV(bool, showMoveSizeStatus,                   true)
 XIV(bool, workspaceSwitchStatus,                true)
-XIV(bool, beepOnNewMail,                        true)
+XIV(bool, beepOnNewMail,                        false)
 XIV(bool, warpPointer,                          false)
 XIV(bool, warpPointerOnEdgeSwitch,              false)
 XIV(bool, opaqueMove,                           true)
@@ -64,11 +64,11 @@ XIV(bool, taskBarFullscreenAutoShow,            true)
 XIV(bool, taskBarDoubleHeight,                  false)
 XIV(bool, taskBarWorkspacesLeft,                true)
 XIV(bool, taskBarWorkspacesTop,                 false)
-XIV(bool, pagerShowPreview,                     true)
+XIV(bool, pagerShowPreview,                     false)
 XIV(bool, pagerShowWindowIcons,                 true)
 XIV(bool, pagerShowMinimized,                   true)
 XIV(bool, pagerShowBorders,                     true)
-XIV(bool, pagerShowNumbers,                     false)
+XIV(bool, pagerShowNumbers,                     true)
 XIV(bool, taskBarShowCPUStatus,                 true)
 XIV(bool, cpustatusShowRamUsage,                true)
 XIV(bool, cpustatusShowSwapUsage,               true)
@@ -89,7 +89,7 @@ XIV(bool, centerLarge,                          false)
 XIV(bool, centerTransientsOnOwner,              true)
 XIV(bool, autoRaise,                            false)
 XIV(bool, delayPointerFocus,                    true)
-XIV(bool, useMouseWheel,                        true)
+XIV(bool, useMouseWheel,                        false)
 XIV(bool, quickSwitch,                          true)
 XIV(bool, quickSwitchToMinimized,               true)
 XIV(bool, quickSwitchToHidden,                  true)
@@ -103,7 +103,7 @@ XIV(bool, quickSwitchSmallWindow,               false)
 XIV(bool, quickSwitchMaxWidth,                  false)
 XIV(bool, quickSwitchHugeIcon,                  false)
 XIV(bool, quickSwitchFillSelection,             false)
-XIV(bool, countMailMessages,                    true)
+XIV(bool, countMailMessages,                    false)
 XIV(bool, strongPointerFocus,                   false)
 XIV(bool, snapMove,                             true)
 XIV(bool, edgeHorzWorkspaceSwitching,           false)
@@ -178,16 +178,16 @@ XSV(const char *, mailCommand,                  "xterm -name alpine -title ALPIN
 XSV(const char *, mailClassHint,                "alpine.XTerm")
 XSV(const char *, newMailCommand,               0)
 XSV(const char *, lockCommand,                  0)
-XSV(const char *, clockCommand,                 "xterm -name cal -hold -g 21x9 -title 'Calendar' +sb -e cal")
-XSV(const char *, clockClassHint,               "cal.XClock")
+XSV(const char *, clockCommand,                 "xclock -name icewm -title Clock")
+XSV(const char *, clockClassHint,               "icewm.XClock")
 XSV(const char *, runDlgCommand,                0)
 XSV(const char *, openCommand,                  0)
 XSV(const char *, terminalCommand,              "xterm")
 XSV(const char *, logoutCommand,                0)
 XSV(const char *, logoutCancelCommand,          0)
 #if defined(__linux__)
-XSV(const char *, shutdownCommand,              "/bin/sh -c \"{ test -e /run/systemd/system && systemctl poweroff; } || poweroff\"")
-XSV(const char *, rebootCommand,                "/bin/sh -c \"{ test -e /run/systemd/system && systemctl reboot; } || reboot\"")
+XSV(const char *, shutdownCommand,              "/bin/sh -c \"{ test -e /run/systemd/system && systemctl poweroff; } ||:\"")
+XSV(const char *, rebootCommand,                "/bin/sh -c \"{ test -e /run/systemd/system && systemctl reboot; } ||:\"")
 #else
 XSV(const char *, shutdownCommand,              0)
 XSV(const char *, rebootCommand,                0)
@@ -196,11 +196,11 @@ XIV(int, taskBarCPUDelay,                       500)
 XIV(int, taskBarMEMDelay,                       500)
 XIV(int, taskBarNetSamples,                     20)
 XIV(int, taskBarNetDelay,                       500)
-XSV(const char *, cpuCommand,                   "xterm -name top -title 'Process Status' -e 'if [ -x /usr/bin/htop ]; then htop; else top; fi'")
+XSV(const char *, cpuCommand,                   "xterm -name top -title Process\\ Status -e top")
 XSV(const char *, cpuClassHint,                 "top.XTerm")
-XSV(const char *, netCommand,                   "xterm -name iftop -title 'Network Status' -e iftop")
-XSV(const char *, netClassHint,                 "iftop.XTerm")
-XSV(const char *, netDevice,                    "eth0 wlan0 ppp0")
+XSV(const char *, netCommand,                   "xterm -name netstat -title 'Network Status' -e netstat -c")
+XSV(const char *, netClassHint,                 "netstat.XTerm")
+XSV(const char *, netDevice,                    "eth0 wlan0")
 XSV(const char *, addressBarCommand,            0)
 #ifdef CONFIG_I18N
 XSV(const char *, fmtTime,                      "%X")
@@ -468,15 +468,6 @@ cfoption icewm_preferences[] = {
     OKV("KeyWinArrangeW",                       gKeyWinArrangeW,                ""),
     OKV("KeyWinArrangeNW",                      gKeyWinArrangeNW,               ""),
     OKV("KeyWinArrangeC",                       gKeyWinArrangeC,                ""),
-    OKV("KeyWinSnapMoveN",                      gKeyWinSnapMoveN, "Move the window up until its bounce to an other window border"),
-    OKV("KeyWinSnapMoveNE",                     gKeyWinSnapMoveNE, "Move the window up/right until its bounce to an other window border"),
-    OKV("KeyWinSnapMoveE",                      gKeyWinSnapMoveE, "Move the window right until its bounce to an other window border"),
-    OKV("KeyWinSnapMoveSE",                     gKeyWinSnapMoveSE, "Move the window down/right until its bounce to an other window border"),
-    OKV("KeyWinSnapMoveS",                      gKeyWinSnapMoveS, "Move the window down until its bounce to an other window border"),
-    OKV("KeyWinSnapMoveSW",                     gKeyWinSnapMoveSW, "Move the window down/left until its bounce to an other window border"),
-    OKV("KeyWinSnapMoveW",                      gKeyWinSnapMoveW, "Move the window left until its bounce to an other window border"),
-    OKV("KeyWinSnapMoveNW",                     gKeyWinSnapMoveNW, "Move the window up/left until its bounce to an other window border"),
-    OKV("KeyWinSmartPlace",                     gKeyWinSmartPlace, "Smart window placement (minimal overlap)"),
     OKV("KeySysSwitchNext",                     gKeySysSwitchNext,              ""),
     OKV("KeySysSwitchLast",                     gKeySysSwitchLast,              ""),
     OKV("KeySysWinNext",                        gKeySysWinNext,                 ""),

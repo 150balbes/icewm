@@ -46,9 +46,9 @@ XSV(const char *, themeAuthor,                  0)
 XSV(const char *, themeDescription,             0)
 
 XFV(const char *, titleFontName,                FONT(120), "sans-serif:size=12")
-XFV(const char *, menuFontName,                 FONT(120), "sans-serif:size=12")
-XFV(const char *, statusFontName,               TTFONT(120), "monospace:size=12")
-XFV(const char *, switchFontName,               TTFONT(120), "monospace:size=12")
+XFV(const char *, menuFontName,                 BOLDFONT(100), "sans-serif:size=10:bold")
+XFV(const char *, statusFontName,               BOLDTTFONT(120), "monospace:size=12:bold")
+XFV(const char *, switchFontName,               BOLDTTFONT(120), "monospace:size=12:bold")
 XFV(const char *, normalButtonFontName,         FONT(120), "sans-serif:size=12")
 XFV(const char *, activeButtonFontName,         BOLDFONT(120), "sans-serif:size=12:bold")
 #ifdef CONFIG_TASKBAR
@@ -335,7 +335,6 @@ cfoption icewm_themable_preferences[] = {
     OSV("Gradients",                            &gradients,                     "List of gradient pixmaps in the current theme"),
 #endif
     OKF("Look", setLook, ""),
-    OKF("WorkspaceNames", addWorkspace, ""),
     OK0()
 };
 
