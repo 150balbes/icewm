@@ -104,34 +104,6 @@ GNOME 1.0 menu support for icewm (using gnome 2.x).
 %dir %{_datadir}/locale
 %{_datadir}/locale/*
 
-<<<<<<< HEAD
-%files themes
-%defattr(-,root,root)
-%dir %{pkgdata}/themes/nice
-%{pkgdata}/themes/nice/*
-%dir %{pkgdata}/themes/nice2
-%{pkgdata}/themes/nice2/*
-%dir %{pkgdata}/themes/gtk2
-%{pkgdata}/themes/gtk2/*
-%dir %{pkgdata}/themes/warp3
-%{pkgdata}/themes/warp3/*
-%dir %{pkgdata}/themes/warp4
-%{pkgdata}/themes/warp4/*
-%dir %{pkgdata}/themes/motif
-%{pkgdata}/themes/motif/*
-%dir %{pkgdata}/themes/win95
-%{pkgdata}/themes/win95/*
-%dir %{pkgdata}/themes/metal2
-%{pkgdata}/themes/metal2/*
-%dir %{pkgdata}/themes/Infadel2
-%{pkgdata}/themes/Infadel2/*
-%dir %{pkgdata}/themes/yellowmotif
-%{pkgdata}/themes/yellowmotif/*
-%dir %{pkgdata}/themes/icedesert
-%{pkgdata}/themes/icedesert/*
-
-=======
->>>>>>> icex
 %changelog
 * Sun Mar 06 2005 Jiri Slaby <jirislaby@gmail.com>
 1.2.20 - Repaired uid in packages (themes, il2 and gnomefiles)
