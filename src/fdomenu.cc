@@ -379,7 +379,7 @@ int main(int argc, const char **argv)
 	}
 	// user's stuff might replace the system links
 	gchar *usershare_full = g_strjoin(NULL, usershare, "/applications", NULL);
-	proc_dir(usershare);
+	proc_dir(usershare_full);
 	opt_g_free(usershare_full);
 
 	dump_menu();
