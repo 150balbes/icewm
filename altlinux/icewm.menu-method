@@ -1,0 +1,25 @@
+#!/usr/sbin/install-menu
+compat="menu-1"
+
+!include menu.h
+
+function findicon($filename, $defaulticon)= \
+    ifeqelse($filename, "", $defaulticon, replace(replace($filename, ".xpm",""), ".png",""))
+
+supported
+  x11=	"  prog \"" translate(lang(), title())    ifnempty($genericname, " ("translate(lang(),$genericname)")") "\" \"" findicon($icon, "-") "\" " $command"\n"
+  text= "  prog \"" translate(lang(), title())    ifnempty($genericname, " ("translate(lang(),$genericname)")") "\" \"" findicon($icon, "-") "\" " term() "\n"
+  wm=   "  restart \"" translate(lang(), title()) ifnempty($genericname, " ("translate(lang(),$genericname)")") "\" \"" findicon($icon, "-") "\" " $command"\n"
+  icewm="  prog \"" translate(lang(), title())    ifnempty($genericname, " ("translate(lang(),$genericname)")") "\" \"" findicon($icon, "-") "\" " $command"\n"
+endsupported
+
+startmenu=ifneq($title,"ALT Linux menu",ifroot("menu \"" translate(lang(), $title) "\" \"" findicon($icon, "default_section") "\" {\n","menu \"" translate(lang(),$title) "\" \"" findicon($icon, "default_section") "\" {\n"))
+endmenu=ifneq($title,"ALT Linux menu","}\n")
+genmenu="menu"
+submenutitle=""
+#submenutitle="  menu \"" $title "\" folder {\n"
+preoutput="prog \"Terminal\" terminals_section /usr/bin/xvt\n"
+rootprefix="/etc/X11/icewm/"
+mainmenutitle="ALT Linux menu"
+treewalk="(M)"
+userprefix=".icewm"

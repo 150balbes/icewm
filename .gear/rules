@@ -1,0 +1,3 @@
+copy: altlinux/*
+spec: altlinux/icex.spec
+tar: icex:. name=@name@

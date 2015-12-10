@@ -27,14 +27,6 @@ Requires:       icewm = %{version}
 %description l10n
 Message translations for icewm.
 
-%package themes
-Group:		%{group}
-Summary:        Extra themes for icewm
-Requires:       icewm > 1.2.2
-
-%description themes
-Extra themes for icewm. 
-
 %if %{?_with_menus_gnome2:1}%{!?_with_menus_gnome2:0}
 
 %package menu-gnome2
@@ -112,6 +104,7 @@ GNOME 1.0 menu support for icewm (using gnome 2.x).
 %dir %{_datadir}/locale
 %{_datadir}/locale/*
 
+<<<<<<< HEAD
 %files themes
 %defattr(-,root,root)
 %dir %{pkgdata}/themes/nice
@@ -137,6 +130,8 @@ GNOME 1.0 menu support for icewm (using gnome 2.x).
 %dir %{pkgdata}/themes/icedesert
 %{pkgdata}/themes/icedesert/*
 
+=======
+>>>>>>> icex
 %changelog
 * Sun Mar 06 2005 Jiri Slaby <jirislaby@gmail.com>
 1.2.20 - Repaired uid in packages (themes, il2 and gnomefiles)

@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# restart all system-wide icewm  programs
+for file in /etc/X11/icewm/restart.d/*; do
+  userfile=~/.icewm/restart.d/`echo $file | sed -e 's,/etc/X11/icewm/restart.d/,,'`
+  # root can disable autostart removing 'execute' bits
+  if [ -x $file ]; then 
+    # User-supplied programs disable system-wide programs.
+    # So user can disable system-wide program 
+    # by touching file in ~/.icewm/restart.d/ with the same name
+    # or even replace it with his own script.
+
+    # skip system-wide program if user-supplied file exists.
+    [ -e $userfile ] || . $file
+  fi
+done
+
+# restart user-supplied icewm programs
+for file in ~/.icewm/restart.d/*; do
+  # running user files 
+  # user can disable autostart removing 'execute' bits
+  [ -x $file ] && . $file
+done
+
+sleep 2
+
+#killall -HUP icewmbg >/dev/null 2>&1 || :
+#killall -HUP icewmtray >/dev/null 2>&1 || :

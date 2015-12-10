@@ -1,0 +1,6 @@
+NAME=IceWM
+ICON=/usr/share/pixmaps/IceWM.xpm
+EXEC=/usr/bin/icewm
+DESC=Lightweight desktop environment
+SCRIPT:
+exec /usr/bin/icewm
