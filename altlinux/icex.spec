@@ -122,6 +122,8 @@ rm -rf %buildroot/%_datadir/xsessions
 %_sysconfdir/X11/wmsession.d/*
 %_bindir/*
 %dir %_datadir/%realname
+%dir %_datadir/%realname/themes/icedesert
+###%_datadir/%realname/icewm
 %_datadir/%realname/icons
 %_datadir/%realname/ledclock
 %_datadir/%realname/mailbox
