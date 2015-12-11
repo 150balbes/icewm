@@ -114,7 +114,7 @@ desktop-file-install --vendor alt --dir %buildroot%_desktopdir %SOURCE10
 # remove unpackaged files
 rm -f %buildroot/%_bindir/%realname-set-gnomewm
 rm -rf %buildroot/%_datadir/doc/%realname
-rm -rf xsessions
+rm -rf %buildroot/%_datadir/xsessions
 rm -rf %buildroot/%_datadir/%realname/themes/Infadel2
 rm -rf %buildroot/%_datadir/%realname/themes/gtk2
 rm -rf %buildroot/%_datadir/%realname/themes/metal2
@@ -127,20 +127,17 @@ rm -rf %buildroot/%_datadir/%realname/themes/win95
 rm -rf %buildroot/%_datadir/%realname/themes/yellowmotif
 rm -rf %buildroot/%_datadir/%realname/themes/icedesert
 
-###mv %buildroot/%_datadir/icewm/themes/icedesert %buildroot/%_datadir/icewm/themes/default
-
 %files -f %realname.lang
 %dir %_sysconfdir/X11/%realname
 %config(noreplace) %_sysconfdir/menu-methods/*
 %_sysconfdir/X11/wmsession.d/*
 %_bindir/*
 %dir %_datadir/%realname
-##%dir %_datadir/%realname/themes
 %_datadir/%realname/icons
 %_datadir/%realname/ledclock
 %_datadir/%realname/mailbox
 %_datadir/%realname/taskbar
-%_datadir/%realname/themes/default
+%_datadir/%realname/themes
 %_datadir/%realname/keys
 %_datadir/%realname/menu
 %_datadir/%realname/preferences
