@@ -306,4 +306,15 @@ nobase_dist_pkgdata_DATA = \
 	themes/yellowmotif/maximize.xpm \
 	themes/yellowmotif/menu.xpm \
 	themes/yellowmotif/minimize.xpm \
-	themes/yellowmotif/restore.xpm
+	themes/yellowmotif/restore.xpm \
+	themes/default/closeA.xpm \
+	themes/default/closeI.xpm \
+	themes/default/default.theme \
+	themes/default/maximizeA.xpm \
+	themes/default/maximizeI.xpm \
+	themes/default/menuButtonA.xpm \
+	themes/default/menuButtonI.xpm \
+	themes/default/minimizeA.xpm \
+	themes/default/minimizeI.xpm \
+	themes/default/restoreA.xpm \
+	themes/default/restoreI.xpm
