@@ -126,7 +126,7 @@ rm -rf %buildroot/%_datadir/xsessions
 %_datadir/%realname/ledclock
 %_datadir/%realname/mailbox
 %_datadir/%realname/taskbar
-%_datadir/%realname/themes
+%_datadir/%realname/themes/icedesert
 %_datadir/%realname/keys
 %_datadir/%realname/menu
 %_datadir/%realname/preferences
