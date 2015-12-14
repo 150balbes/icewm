@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# logout icewm
+for file in /etc/icewm/logout_d/*; do
+  userfile=~/.icewm/logout_d/`echo $file | sed -e 's,/etc/icewm/logout_d/,,'`
+  if [ -x $file ]; then 
+    [ -e $userfile ] || . $file
+  fi
+done
+
+for file in ~/.icewm/logout_d/*; do
+  # running user files 
+  # user can disable autostart removing 'execute' bits
+  [ -x $file ] && . $file
+done
+
+sleep 2

@@ -36,7 +36,12 @@ dist_noinst_SCRIPTS = \
 	autogen.sh
 
 dist_bin_SCRIPTS = \
-	icewm-set-gnomewm
+	icewm-set-gnomewm \
+	icewm_logout \
+	icewm_reboot \
+	icewm_shutdown \
+	icewm_restart \
+	icewm_startup
 
 ChangeLog:
 	( \
