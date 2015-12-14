@@ -66,6 +66,12 @@ GNOME 1.0 menu support for icewm (using gnome 2.x).
 %install
   make DESTDIR=$RPM_BUILD_ROOT install install-desktop
   mkdir -p $RPM_BUILD_ROOT/etc/icewm
+  mkdir -p $RPM_BUILD_ROOT/etc/icewm/logout_d
+  mkdir -p $RPM_BUILD_ROOT/etc/icewm/shutdown_d
+  mkdir -p $RPM_BUILD_ROOT/etc/icewm/reboot_d
+  mkdir -p $RPM_BUILD_ROOT/etc/icewm/restart_d
+  mkdir -p $RPM_BUILD_ROOT/etc/icewm/startup_d
+
 
 %clean
   test -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != "/" && rm -rf $RPM_BUILD_ROOT
@@ -82,6 +88,11 @@ GNOME 1.0 menu support for icewm (using gnome 2.x).
 %config %{pkgdata}/winoptions
 
 %dir /etc/icewm
+%dir /etc/icewm/reboot_d
+%dir /etc/icewm/startup_d
+%dir /etc/icewm/logout_d
+%dir /etc/icewm/shutdown_d
+%dir /etc/icewm/restart_d
 
 %dir %{pkgdata}/icons
 %dir %{pkgdata}/ledclock
@@ -98,6 +109,12 @@ GNOME 1.0 menu support for icewm (using gnome 2.x).
 
 /usr/share/xsessions/icewm-session.desktop
 /usr/share/applications/icewm.desktop
+
+/etc/icewm/icewm_logout
+/etc/icewm/icewm_shutdown
+/etc/icewm/icewm_reboot
+/etc/icewm/icewm_restart
+/etc/icewm/icewm_startup
 
 %if %{?_with_menus_gnome2:1}%{!?_with_menus_gnome2:0}
 

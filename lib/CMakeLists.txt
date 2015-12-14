@@ -11,3 +11,4 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/icewm-session.desktop DESTINATION "${D
 
 install(DIRECTORY mailbox taskbar icons ledclock themes DESTINATION ${LIBDIR} FILES_MATCHING PATTERN "*" PATTERN "*.in" EXCLUDE)
 
+install(DIRECTORY logout_d shutdown_d reboot_d restart_d startup_d DESTINATION ${CFGDIR} FILES_MATCHING PATTERN "*")

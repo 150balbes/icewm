@@ -3,9 +3,9 @@
 %define alt altlinux
 %def_with menu
 
-Name: %realname-x-githubmod
+Name: icex
 Version: 1.3.11
-Release: alt10.2
+Release: alt10.3
 
 Summary: X11 Window Manager
 Group: Graphical desktop/Icewm
@@ -31,11 +31,6 @@ Source9: %alt/README.ALT
 Source10: %alt/%realname.desktop
 
 Source12: %alt/icewm-old-changelog
-Source13: %alt/icewm_logout
-Source14: %alt/icewm_shutdown
-Source15: %alt/icewm_reboot
-Source16: %alt/icewm_restart
-Source17: %alt/icewm_startup
 
 BuildRequires(pre): rpm-macros-cmake
 # Automatically added by buildreq on Sat Apr 11 2015
@@ -59,11 +54,25 @@ maintained on Github https://github.com/bbidulock/icewm
 
 Recommends: iftop, mutt
 
+%package theme-default
+Group: Graphical desktop/Icewm
+Summary: Extra themes for icewm default
+Summary(ru_RU.UTF-8): Дефолтные темы для IceWM
+###Requires: %name > 1.3.11
+AutoReq: no
+BuildArch: noarch
+
+%description theme-default
+Extra themes for icewm default
+%description -l ru_RU.UTF-8 theme-default
+Темы для IceWM по умолчанию.
+
+
 %prep
 %setup -n %name
 
 %build
-%cmake	-DCFGDIR=%_sysconfdir/X11/%realname -DPREFIX=%_prefix \
+%cmake	-DCFGDIR=%_sysconfdir/%realname -DPREFIX=%_prefix \
 	-DLIBDIR=%_datadir/%realname -DCONFIG_GUIEVENTS=on  \
 	-DICESOUND="ALSA,OSS,ESound"
 pushd BUILD
@@ -74,7 +83,6 @@ popd
 pushd BUILD
 %makeinstall_std
 popd
-#cp %buildroot%_x11x11dir/%realname/preferences %buildroot%_x11x11dir/%realname/preferences
 
 %if_with menu
 mkdir -p %buildroot%_menudir
@@ -91,19 +99,7 @@ install -pD -m644 %SOURCE8 %buildroot%_sysconfdir/X11/wmsession.d/04IceWM
 install -m644 %SOURCE9 README.ALT
 install -m644 %SOURCE12 icewm-old-changelog
 
-mkdir -p %buildroot%_sysconfdir/X11/%realname
-
-mkdir -p %buildroot%_sysconfdir/X11/%realname/startup.d
-mkdir -p %buildroot%_sysconfdir/X11/%realname/logout.d
-mkdir -p %buildroot%_sysconfdir/X11/%realname/shutdown.d
-mkdir -p %buildroot%_sysconfdir/X11/%realname/reboot.d
-mkdir -p %buildroot%_sysconfdir/X11/%realname/restart.d
-
-install -m 755 %SOURCE13 %buildroot%_sysconfdir/X11/%realname/icewm_logout
-install -m 755 %SOURCE14 %buildroot%_sysconfdir/X11/%realname/icewm_shutdown
-install -m 755 %SOURCE15 %buildroot%_sysconfdir/X11/%realname/icewm_reboot
-install -m 755 %SOURCE16 %buildroot%_sysconfdir/X11/%realname/icewm_restart
-install -m 755 %SOURCE17 %buildroot%_sysconfdir/X11/%realname/icewm_startup
+mkdir -p %buildroot%_sysconfdir/%realname
 
 %if_without menu
 desktop-file-install --vendor alt --dir %buildroot%_desktopdir %SOURCE10
@@ -115,45 +111,38 @@ desktop-file-install --vendor alt --dir %buildroot%_desktopdir %SOURCE10
 rm -f %buildroot/%_bindir/%realname-set-gnomewm
 rm -rf %buildroot/%_datadir/doc/%realname
 rm -rf %buildroot/%_datadir/xsessions
-rm -rf %buildroot/%_datadir/%realname/themes/Infadel2
-rm -rf %buildroot/%_datadir/%realname/themes/gtk2
-rm -rf %buildroot/%_datadir/%realname/themes/metal2
-rm -rf %buildroot/%_datadir/%realname/themes/motif
-rm -rf %buildroot/%_datadir/%realname/themes/nice
-rm -rf %buildroot/%_datadir/%realname/themes/nice2
-rm -rf %buildroot/%_datadir/%realname/themes/warp3
-rm -rf %buildroot/%_datadir/%realname/themes/warp4
-rm -rf %buildroot/%_datadir/%realname/themes/win95
-rm -rf %buildroot/%_datadir/%realname/themes/yellowmotif
-rm -rf %buildroot/%_datadir/%realname/themes/icedesert
 
 %files -f %realname.lang
-%dir %_sysconfdir/X11/%realname
+%dir %_sysconfdir/%realname
+%dir %_sysconfdir/%realname/logout_d
+%dir %_sysconfdir/%realname/shutdown_d
+%dir %_sysconfdir/%realname/reboot_d
+%dir %_sysconfdir/%realname/restart_d
+%dir %_sysconfdir/%realname/startup_d
+%_sysconfdir/%realname/logout_d
+%_sysconfdir/%realname/shutdown_d
+%_sysconfdir/%realname/reboot_d
+%_sysconfdir/%realname/restart_d
+%_sysconfdir/%realname/startup_d
 %config(noreplace) %_sysconfdir/menu-methods/*
 %_sysconfdir/X11/wmsession.d/*
 %_bindir/*
-%dir %_datadir/%realname
+%_datadir/%realname/themes/default/*
 %_datadir/%realname/icons
 %_datadir/%realname/ledclock
 %_datadir/%realname/mailbox
 %_datadir/%realname/taskbar
-%_datadir/%realname/themes
 %_datadir/%realname/keys
 %_datadir/%realname/menu
 %_datadir/%realname/preferences
 %_datadir/%realname/programs
 %_datadir/%realname/toolbar
 %_datadir/%realname/winoptions
-%dir %_sysconfdir/X11/%realname/startup.d
-%dir %_sysconfdir/X11/%realname/logout.d
-%dir %_sysconfdir/X11/%realname/shutdown.d
-%dir %_sysconfdir/X11/%realname/reboot.d
-%dir %_sysconfdir/X11/%realname/restart.d
-%config(noreplace) %_sysconfdir/X11/%realname/icewm_logout
-%config(noreplace) %_sysconfdir/X11/%realname/icewm_shutdown
-%config(noreplace) %_sysconfdir/X11/%realname/icewm_reboot
-%config(noreplace) %_sysconfdir/X11/%realname/icewm_restart
-%config(noreplace) %_sysconfdir/X11/%realname/icewm_startup
+%_sysconfdir/%realname/icewm_logout
+%_sysconfdir/%realname/icewm_shutdown
+%_sysconfdir/%realname/icewm_reboot
+%_sysconfdir/%realname/icewm_restart
+%_sysconfdir/%realname/icewm_startup
 %if_with menu
 %_menudir/*
 %else
@@ -165,9 +154,25 @@ rm -rf %buildroot/%_datadir/%realname/themes/icedesert
 %_pixmapsdir/*
 %_man1dir/*
 
+%files theme-default
+%_datadir/%realname/themes/Infadel2
+%_datadir/%realname/themes/gtk2
+%_datadir/%realname/themes/metal2
+%_datadir/%realname/themes/motif
+%_datadir/%realname/themes/nice
+%_datadir/%realname/themes/nice2
+%_datadir/%realname/themes/warp3
+%_datadir/%realname/themes/warp4
+%_datadir/%realname/themes/win95
+%_datadir/%realname/themes/yellowmotif
+%_datadir/%realname/themes/icedesert
+
 %doc AUTHORS NEWS README.ALT README.md BUILD/doc/*.html icewm-old-changelog
 
 %changelog
+* Mon Dec 13 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.11-alt10.3
+- move script
+
 * Mon Dec 11 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.11-alt10.2
 - add defaults themes icedesert
 

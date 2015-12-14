@@ -35,7 +35,7 @@ XIV(bool, grabRootWindow,                       true)
 XIV(bool, haveXft,                              true)
 #endif
 XSV(const char *, iconPath,                     "/usr/share/icons/hicolor:/usr/share/icons/locolor:/usr/share/icons/large:/usr/share/icons/mini:/usr/share/icons/default.gnome:/usr/share/icons/default.kde:/usr/share/icons/oxygen:/usr/share/pixmaps")
-#define CONFIG_DEFAULT_THEME "icedesert/default.theme"
+#define CONFIG_DEFAULT_THEME "default/default.theme"
 XSV(const char *, themeName,                    CONFIG_DEFAULT_THEME)
 XSV(const char *, xineramaPrimaryScreenName,    0)
 

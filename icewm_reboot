@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# reboot all system-wide icewm  programs
+for file in /etc/icewm/reboot_d/*; do
+  userfile=~/.icewm/reboot_d/`echo $file | sed -e 's,/etc/icewm/reboot_d/,,'`
+  # root can disable autostart removing 'execute' bits
+  if [ -x $file ]; then 
+    [ -e $userfile ] || . $file
+  fi
+done
+
+for file in ~/.icewm/reboot_d/*; do
+  # running user files 
+  # user can disable autostart removing 'execute' bits
+  [ -x $file ] && . $file
+done
+
+sync
+sleep 2
+
+if [ -e /run/systemd/system ]; then
+    systemctl reboot
+else
+    reboot
+fi
