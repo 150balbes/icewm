@@ -313,6 +313,10 @@ nobase_dist_pkgdata_DATA = \
 	themes/default/closeA.xpm \
 	themes/default/closeI.xpm \
 	themes/default/default.theme \
+	themes/default/depthA.xpm \
+	themes/default/depthI.xpm \
+	themes/default/hideA.xpm \
+	themes/default/hideI.xpm \
 	themes/default/maximizeA.xpm \
 	themes/default/maximizeI.xpm \
 	themes/default/menuButtonA.xpm \
@@ -321,6 +325,10 @@ nobase_dist_pkgdata_DATA = \
 	themes/default/minimizeI.xpm \
 	themes/default/restoreA.xpm \
 	themes/default/restoreI.xpm \
+	themes/default/rolldownA.xpm \
+	themes/default/rolldownI.xpm \
+	themes/default/rollupA.xpm \
+	themes/default/rollupI.xpm \
 	logout_d\readme \
 	shutdown_d\readme \
 	reboot_d\readme \

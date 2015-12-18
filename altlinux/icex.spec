@@ -4,8 +4,8 @@
 %def_with menu
 
 Name: icex
-Version: 1.3.11
-Release: alt10.3
+Version: 1.3.12
+Release: alt1
 
 Summary: X11 Window Manager
 Group: Graphical desktop/Icewm
@@ -170,6 +170,9 @@ rm -rf %buildroot/%_datadir/xsessions
 %doc AUTHORS NEWS README.ALT README.md BUILD/doc/*.html icewm-old-changelog
 
 %changelog
+* Mon Dec 18 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt1
+- edit default theme
+
 * Mon Dec 13 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.11-alt10.3
 - move script
 

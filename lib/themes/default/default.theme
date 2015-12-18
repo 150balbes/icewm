@@ -1,8 +1,14 @@
-ThemeDescription="Gtk default style theme -- needs work"
-ThemeAuthor="Marko Macek"
-Look=gtk
-TitleBarHeight=20
-TitleButtonsSupported="xmis"
+ThemeDescription="Default theme"
+
+ThemeAuthor="unknown"
+
+Look=pixmap
+TitleBarHeight=19
+TitleBarJustify=50
+
+TitleButtonsLeft="sd"
+TitleButtonsRight="xmirh"
+TitleButtonsSupported="sxmihrd"
 
 BorderSizeX=6
 BorderSizeY=6
