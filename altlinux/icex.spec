@@ -14,9 +14,9 @@ Url: http://www.icewm.org
 Packager: Oleg Ivanov <Leo-sp150@yandex.ru>
 
 Provides: %realname = %version-%release
-Provides: %realname-light = %version-%release
+#Provides: %realname-light = %version-%release
 #Requires: design-%realname >= 1.0-alt6
-Obsoletes: %realname-light < %version-%release
+#Obsoletes: %realname-light < %version-%release
 
 Source0: %name.tar
 Source1: %alt/%realname.menu
