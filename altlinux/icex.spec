@@ -30,8 +30,6 @@ Source8: %alt/%realname.wmsession
 Source9: %alt/README.ALT
 Source10: %alt/%realname.desktop
 
-Source12: %alt/icewm-old-changelog
-
 BuildRequires(pre): rpm-macros-cmake
 # Automatically added by buildreq on Sat Apr 11 2015
 BuildRequires: OpenSP cmake gcc-c++ libSM-devel libXext-devel libXft-devel
@@ -97,7 +95,6 @@ install -pD -m644 %SOURCE5 %buildroot%_liconsdir/%realname.png
 install -pD -m644 %SOURCE7 %buildroot%_pixmapsdir/IceWM.xpm
 install -pD -m644 %SOURCE8 %buildroot%_sysconfdir/X11/wmsession.d/04IceWM
 install -m644 %SOURCE9 README.ALT
-install -m644 %SOURCE12 icewm-old-changelog
 
 mkdir -p %buildroot%_sysconfdir/%realname
 
@@ -167,9 +164,12 @@ rm -rf %buildroot/%_datadir/xsessions
 %_datadir/%realname/themes/yellowmotif
 %_datadir/%realname/themes/icedesert
 
-%doc AUTHORS NEWS README.ALT README.md BUILD/doc/*.html icewm-old-changelog
+%doc AUTHORS NEWS README.ALT README.md BUILD/doc/*.html
 
 %changelog
+* Mon Dec 18 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt1.1
+- dell icewm-session
+
 * Mon Dec 18 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt1
 - edit default theme
 
