@@ -12,7 +12,7 @@ AC_CANONICAL_TARGET
 DATE='2015-12-16'
 AC_SUBST([DATE])
 
-APPLICATIONS='icewm icewm-session icesh icewmhint icewmbg icewmtray'
+APPLICATIONS='icewm icesh icewmhint icewmbg icewmtray'
 TESTCASES=`echo src/test*.cc | sed 's%src/\([[^ ]]*\)\.cc%\1%g'`
 TESTCASES="$TESTCASES iceview icesame iceicon icerun icelist icebar" # iceclock
 features=''

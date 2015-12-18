@@ -2,8 +2,7 @@
 xsessiondir = $(datadir)/xsessions
 
 dist_xsession_DATA = \
-	icewm.desktop \
-	icewm-session.desktop
+	icewm.desktop
 
 nodist_pkgdata_DATA = \
 	keys \

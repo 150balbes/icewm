@@ -24,10 +24,6 @@
 #define ICEWMTRAYEXE "icewmtray" QUOTE(EXEEXT)
 #endif
 
-#ifndef ICESMEXE
-#define ICESMEXE "icewm-session" QUOTE(EXEEXT)
-#endif
-
 #ifndef ICEHELPEXE
 #define ICEHELPEXE "icehelp" QUOTE(EXEEXT)
 #endif

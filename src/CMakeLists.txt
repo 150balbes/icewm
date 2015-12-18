@@ -235,12 +235,12 @@ if(NOT LITE)
 	option(CONFIG_TOOLTIP "Define to support tooltips" on)
 	option(CONFIG_WINLIST "Define for OS/2 like window list" on)
 	option(CONFIG_TASKBAR "Define to enable builtin taskbar" on)
-	option(CONFIG_APPLET_MEM_STATUS "Define for memory status applet" on)
 	if(CONFIG_TASKBAR)
 		option(CONFIG_ADDRESSBAR "Define for address bar" on)
 		option(CONFIG_TRAY "Define for system tray" on)
 		option(CONFIG_APPLET_MAILBOX "Define for mailbox applet" on)
 		option(CONFIG_APPLET_CPU_STATUS "Define for CPU status applet" on)
+		option(CONFIG_APPLET_MEM_STATUS "Define for memory status applet" on)
 		option(CONFIG_APPLET_NET_STATUS "Define for network status applet" on)
 		option(CONFIG_APPLET_CLOCK "Define for LCD clock applet" on)
 		option(CONFIG_APPLET_APM "Define for APM status applet" on)
@@ -335,10 +335,6 @@ TARGET_LINK_LIBRARIES(icewm-menu-fdo${EXEEXT} ${gio_LDFLAGS} ${nls_LIBS} ${EXTRA
 INSTALL(TARGETS icewm-menu-fdo${EXEEXT} DESTINATION ${BINDIR})
 ENDIF()
 
-ADD_EXECUTABLE(icewm-session${EXEEXT} icesm.cc yapp.cc misc.cc mstring.cc upath.cc ytimer.cc yprefs.cc)
-SET_TARGET_PROPERTIES(icewm-session${EXEEXT} PROPERTIES COMPILE_FLAGS "${CXXFLAGS_COMMON} ${icewm_pc_flags}")
-TARGET_LINK_LIBRARIES(icewm-session${EXEEXT} ${nls_LIBS} ${EXTRA_LIBS})
-
 ADD_EXECUTABLE(icewmhint${EXEEXT} icewmhint.cc)
 SET_TARGET_PROPERTIES(icewmhint${EXEEXT} PROPERTIES COMPILE_FLAGS "${CXXFLAGS_COMMON} ${icewm_pc_flags}")
 TARGET_LINK_LIBRARIES(icewmhint${EXEEXT} ${xext_LDFLAGS} ${x11_LDFLAGS} ${nls_LIBS} ${EXTRA_LIBS})
@@ -369,7 +365,7 @@ ADD_EXECUTABLE(icewmtray${EXEEXT} icetray.cc ywindow.cc yxapp.cc yapp.cc ref.cc 
 SET_TARGET_PROPERTIES(icewmtray${EXEEXT} PROPERTIES COMPILE_FLAGS "${CXXFLAGS_COMMON} ${icewm_pc_flags}")
 TARGET_LINK_LIBRARIES(icewmtray${EXEEXT} ${xext_LDFLAGS} ${x11_LDFLAGS} ${xft_LDFLAGS} ${xrandr_LDFLAGS} ${pixbuf_LDFLAGS} ${xinerama_LDFLAGS} ${nls_LIBS} ${EXTRA_LIBS})
 
-INSTALL(TARGETS icewm${EXEEXT} icesh${EXEEXT} icewm-session${EXEEXT} icewmhint${EXEEXT} icewmbg${EXEEXT} icewmtray${EXEEXT} DESTINATION ${BINDIR})
+INSTALL(TARGETS icewm${EXEEXT} icesh${EXEEXT} icewmhint${EXEEXT} icewmbg${EXEEXT} icewmtray${EXEEXT} DESTINATION ${BINDIR})
 
 # that bit might be disabled by the user
 if(NOT CROSSCOMPILE)
