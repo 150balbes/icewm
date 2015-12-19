@@ -140,6 +140,7 @@ XIV(bool, confirmLogout,                        true)
 XIV(bool, protectClientWindow,                  true)
 #endif
 XIV(bool, activateJava7FocusHack,               false)
+XIV(bool, showBackground,                       true)
 XIV(int, MenuMaximalWidth,                      0)
 XIV(int, EdgeResistance,                        32)
 XIV(int, snapDistance,                          8)
@@ -260,7 +261,7 @@ cfoption icewm_preferences[] = {
     OBV("AutoRaise",                            &autoRaise,                     "Auto raise windows after delay"),
     OBV("DelayPointerFocus",                    &delayPointerFocus,             "Delay pointer focusing when mouse moves"),
     OBV("Win95Keys",                            &win95keys,                     "Support win95 keyboard keys (Penguin/Meta/Win_L,R shows menu)"),
-    OBV("ModSuperIsCtrlAlt",                     &modSuperIsCtrlAlt,            "Treat Super/Win modifier as Ctrl+Alt"),
+    OBV("ModSuperIsCtrlAlt",                    &modSuperIsCtrlAlt,             "Treat Super/Win modifier as Ctrl+Alt"),
     OBV("UseMouseWheel",                        &useMouseWheel,                 "Support mouse wheel"),
     OBV("ShowPopupsAbovePointer",               &showPopupsAbovePointer,        "Show popup menus above mouse pointer"),
     OBV("ReplayMenuCancelClick",                &replayMenuCancelClick,         "Send the clicks outside menus to target window"),
@@ -355,8 +356,9 @@ cfoption icewm_preferences[] = {
 #endif
     OBV("DoubleBuffer",                         &doubleBuffer,                  "Use double buffering when redrawing the display"),
     OBV("XRRDisable",                           &xrrDisable,                    "Disable use of new XRANDR API for dual head (nvidia workaround)"),
-    OIV("DelayFuzziness",                       &DelayFuzziness, 0, 100,        "Delay fuzziness, to allow merging of multiple timer timeouts into one (notebook power saving)"),
     OBV("ActivateJava7FocusHack",               &activateJava7FocusHack,        "Activate workaround for Java7 Swing/AWT focus issue"),
+    OBV("ShowBackground",                       &showBackground,                "Show Background"),
+    OIV("DelayFuzziness",                       &DelayFuzziness, 0, 100,        "Delay fuzziness, to allow merging of multiple timer timeouts into one (notebook power saving)"),
     OIV("ClickMotionDistance",                  &ClickMotionDistance, 0, 32,    "Pointer motion distance before click gets interpreted as drag"),
     OIV("ClickMotionDelay",                     &ClickMotionDelay, 0, 2000,     "Delay before click gets interpreted as drag"),
     OIV("MultiClickTime",                       &MultiClickTime, 0, 5000,       "Multiple click time"),
@@ -436,7 +438,6 @@ cfoption icewm_preferences[] = {
 #ifdef CONFIG_APPLET_APM
     OSV("AcpiIgnoreBatteries",                  &acpiIgnoreBatteries,           "List of battery names (directories) in /proc/acpi/battery to ignore. Useful when more slots are built-in, but only one battery is used"),
 #endif
-
 
 #ifndef NO_KEYBIND
     OKV("MouseWinMove",                         gMouseWinMove,                  "Mouse binding for window move"),

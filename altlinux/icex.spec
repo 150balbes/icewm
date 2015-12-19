@@ -5,7 +5,7 @@
 
 Name: icex
 Version: 1.3.12
-Release: alt1
+Release: alt2
 
 Summary: X11 Window Manager
 Group: Graphical desktop/Icewm
@@ -167,6 +167,9 @@ rm -rf %buildroot/%_datadir/xsessions
 %doc AUTHORS NEWS README.ALT README.md BUILD/doc/*.html
 
 %changelog
+* Mon Dec 19 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt2
+- Supports settings on and off tray and background
+
 * Mon Dec 18 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt1.1
 - dell icewm-session
 

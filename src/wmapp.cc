@@ -1728,8 +1728,12 @@ int main(int argc, char **argv) {
 //       kill(getppid(), SIGUSR1);
 
     if (restart != true) {
-       app.runOnce(ICEWMTRAYEXE, ICEWMTRAYEXE, 0);
-       app.runOnce(ICEWMBGEXE, ICEWMBGEXE, 0);
+		if (taskBarShowTray) {
+			app.runOnce(ICEWMTRAYEXE, ICEWMTRAYEXE, 0);
+		}
+		if (showBackground) {
+			app.runOnce(ICEWMBGEXE, ICEWMBGEXE, 0);
+		}
        app.runScript("icewm_startup");
     }
 
