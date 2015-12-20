@@ -5,7 +5,7 @@
 
 Name: icex
 Version: 1.3.12
-Release: alt2
+Release: alt2.1
 
 Summary: X11 Window Manager
 Group: Graphical desktop/Icewm
@@ -40,7 +40,7 @@ BuildRequires: libgdk-pixbuf-devel libsndfile-devel linuxdoc-tools perl-parent
 BuildPreReq: desktop-file-utils
 %endif
 
-Conflicts: icewm-githubmod
+Conflicts: icewm-githubmod icewm-x-githubmod
 
 %description
  Window Manager for X Window System. Can emulate the look of Windows'95, OS/2
@@ -151,6 +151,8 @@ rm -rf %buildroot/%_datadir/xsessions
 %_pixmapsdir/*
 %_man1dir/*
 
+%doc AUTHORS NEWS README.ALT README.md BUILD/doc/*.html
+
 %files theme-default
 %_datadir/%realname/themes/Infadel2
 %_datadir/%realname/themes/gtk2
@@ -164,9 +166,10 @@ rm -rf %buildroot/%_datadir/xsessions
 %_datadir/%realname/themes/yellowmotif
 %_datadir/%realname/themes/icedesert
 
-%doc AUTHORS NEWS README.ALT README.md BUILD/doc/*.html
-
 %changelog
+* Mon Dec 19 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt2.1
+- add default theme background
+
 * Mon Dec 19 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt2
 - Supports settings on and off tray and background
 
