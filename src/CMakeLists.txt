@@ -11,11 +11,7 @@ INCLUDE(CheckIncludeFileCXX)
 INCLUDE(FindPkgConfig)
 INCLUDE(CheckCXXSourceCompiles)
 
-SET(CXXFLAGS_COMMON " -pthread -Wall -Wextra -Wno-unused-parameter -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -I.")
-
-if("${CMAKE_BUILD_TYPE}" STREQUAL "" AND ("" STREQUAL "${CMAKE_CXX_FLAGS}"))
-	SET(CMAKE_BUILD_TYPE Release)
-endif()
+SET(CXXFLAGS_COMMON " -pthread -g -O2 -Wall -Wextra -Wno-unused-parameter -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -I. ${CMAKE_CXX_FLAGS}")
 
 # I don't need -rdynamic, thanks!
 SET(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "")
@@ -23,6 +19,8 @@ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
 
 # apply to test calls
 SET(CMAKE_REQUIRED_FLAGS ${CXXFLAGS_COMMON})
+
+include_directories(${PROJECT_SOURCE_DIR})
 
 option(CONFIG_XPM "Legacy XPM image loader" off)
 option(CONFIG_IMLIB "(Deprecated) IMLIB image loader" off)
@@ -282,6 +280,7 @@ ENDIF()
 #######################################
 
 CONFIGURE_FILE("${CMAKE_SOURCE_DIR}/src/config.cmake.h.in" "${CMAKE_BINARY_DIR}/config.h")
+include_directories("${CMAKE_BINARY_DIR}")
 
 #######################################
 # declaring targets and build flags   #
@@ -368,13 +367,12 @@ TARGET_LINK_LIBRARIES(icewmtray${EXEEXT} ${xext_LDFLAGS} ${x11_LDFLAGS} ${xft_LD
 
 INSTALL(TARGETS icewm${EXEEXT} icesh${EXEEXT} icewmhint${EXEEXT} icewmbg${EXEEXT} icewmtray${EXEEXT} DESTINATION ${BINDIR})
 
-if(NOT CMAKE_CROSSCOMPILING)
-   ADD_CUSTOM_COMMAND(TARGET genpref${EXEEXT}
-      POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/lib
-      COMMAND genpref${EXEEXT} > lib/preferences
-      WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
-   INSTALL(FILES lib/preferences DESTINATION ${LIBDIR})
+# that bit might be disabled by the user
+if(NOT CROSSCOMPILE)
+	ADD_CUSTOM_COMMAND(TARGET genpref${EXEEXT} POST_BUILD
+		COMMAND ${CMAKE_BINARY_DIR}/genpref${EXEEXT} > preferences
+		WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
+	INSTALL(FILES ${CMAKE_BINARY_DIR}/preferences DESTINATION ${LIBDIR})
 endif()
 
 #######################################
