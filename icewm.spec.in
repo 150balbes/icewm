@@ -65,13 +65,7 @@ GNOME 1.0 menu support for icewm (using gnome 2.x).
 
 %install
   make DESTDIR=$RPM_BUILD_ROOT install install-desktop
-  mkdir -p $RPM_BUILD_ROOT/etc/icewm
-  mkdir -p $RPM_BUILD_ROOT/etc/icewm/logout_d
-  mkdir -p $RPM_BUILD_ROOT/etc/icewm/shutdown_d
-  mkdir -p $RPM_BUILD_ROOT/etc/icewm/reboot_d
-  mkdir -p $RPM_BUILD_ROOT/etc/icewm/restart_d
-  mkdir -p $RPM_BUILD_ROOT/etc/icewm/startup_d
-
+  mkdir -p $RPM_BUILD_ROOT/usr/share/icewm
 
 %clean
   test -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != "/" && rm -rf $RPM_BUILD_ROOT
@@ -87,18 +81,22 @@ GNOME 1.0 menu support for icewm (using gnome 2.x).
 %config %{pkgdata}/toolbar
 %config %{pkgdata}/winoptions
 
-%dir /etc/icewm
-%dir /etc/icewm/reboot_d
-%dir /etc/icewm/startup_d
-%dir /etc/icewm/logout_d
-%dir /etc/icewm/shutdown_d
-%dir /etc/icewm/restart_d
+/usr/share/icewm/icewm_logout
+/usr/share/icewm/icewm_shutdown
+/usr/share/icewm/icewm_reboot
+/usr/share/icewm/icewm_restart
+/usr/share/icewm/icewm_startup
 
 %dir %{pkgdata}/icons
 %dir %{pkgdata}/ledclock
 %dir %{pkgdata}/mailbox
 %dir %{pkgdata}/taskbar
 %dir %{pkgdata}/themes
+%dir %{pkgdata}/reboot_d
+%dir %{pkgdata}/startup_d
+%dir %{pkgdata}/logout_d
+%dir %{pkgdata}/shutdown_d
+%dir %{pkgdata}/restart_d
 
 %{_bindir}/*
 %{pkgdata}/icons/*
@@ -108,12 +106,6 @@ GNOME 1.0 menu support for icewm (using gnome 2.x).
 %{pkgdata}/themes/default/*
 
 /usr/share/applications/icewm.desktop
-
-/etc/icewm/icewm_logout
-/etc/icewm/icewm_shutdown
-/etc/icewm/icewm_reboot
-/etc/icewm/icewm_restart
-/etc/icewm/icewm_startup
 
 %if %{?_with_menus_gnome2:1}%{!?_with_menus_gnome2:0}
 

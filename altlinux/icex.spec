@@ -5,7 +5,7 @@
 
 Name: icex
 Version: 1.3.12
-Release: alt2.1
+Release: alt3
 
 Summary: X11 Window Manager
 Group: Graphical desktop/Icewm
@@ -97,6 +97,7 @@ install -pD -m644 %SOURCE8 %buildroot%_sysconfdir/X11/wmsession.d/04IceWM
 install -m644 %SOURCE9 README.ALT
 
 mkdir -p %buildroot%_sysconfdir/%realname
+mkdir -p %buildroot%_datadir/%realname
 
 %if_without menu
 desktop-file-install --vendor alt --dir %buildroot%_desktopdir %SOURCE10
@@ -111,20 +112,22 @@ rm -rf %buildroot/%_datadir/xsessions
 
 %files -f %realname.lang
 %dir %_sysconfdir/%realname
-%dir %_sysconfdir/%realname/logout_d
-%dir %_sysconfdir/%realname/shutdown_d
-%dir %_sysconfdir/%realname/reboot_d
-%dir %_sysconfdir/%realname/restart_d
-%dir %_sysconfdir/%realname/startup_d
-%_sysconfdir/%realname/logout_d
-%_sysconfdir/%realname/shutdown_d
-%_sysconfdir/%realname/reboot_d
-%_sysconfdir/%realname/restart_d
-%_sysconfdir/%realname/startup_d
+%dir %_datadir/%realname
+%dir %_datadir/%realname/logout_d
+%dir %_datadir/%realname/shutdown_d
+%dir %_datadir/%realname/reboot_d
+%dir %_datadir/%realname/restart_d
+%dir %_datadir/%realname/startup_d
+%dir %_datadir/%realname/themes
+%_datadir/%realname/logout_d
+%_datadir/%realname/shutdown_d
+%_datadir/%realname/reboot_d
+%_datadir/%realname/restart_d
+%_datadir/%realname/startup_d
 %config(noreplace) %_sysconfdir/menu-methods/*
 %_sysconfdir/X11/wmsession.d/*
 %_bindir/*
-%_datadir/%realname/themes/default/*
+%_datadir/%realname/themes/default
 %_datadir/%realname/icons
 %_datadir/%realname/ledclock
 %_datadir/%realname/mailbox
@@ -135,11 +138,11 @@ rm -rf %buildroot/%_datadir/xsessions
 %_datadir/%realname/programs
 %_datadir/%realname/toolbar
 %_datadir/%realname/winoptions
-%_sysconfdir/%realname/icewm_logout
-%_sysconfdir/%realname/icewm_shutdown
-%_sysconfdir/%realname/icewm_reboot
-%_sysconfdir/%realname/icewm_restart
-%_sysconfdir/%realname/icewm_startup
+%_datadir/%realname/icewm_logout
+%_datadir/%realname/icewm_shutdown
+%_datadir/%realname/icewm_reboot
+%_datadir/%realname/icewm_restart
+%_datadir/%realname/icewm_startup
 %if_with menu
 %_menudir/*
 %else
@@ -167,6 +170,9 @@ rm -rf %buildroot/%_datadir/xsessions
 %_datadir/%realname/themes/icedesert
 
 %changelog
+* Mon Dec 23 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt3
+- edit config dir
+
 * Mon Dec 19 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt2.1
 - add default theme background
 

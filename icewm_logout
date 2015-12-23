@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # logout icewm
-for file in /etc/icewm/logout_d/*; do
-  userfile=~/.icewm/logout_d/`echo $file | sed -e 's,/etc/icewm/logout_d/,,'`
+for file in /usr/share/icewm/logout_d/*; do
+  userfile=~/.icewm/logout_d/`echo $file | sed -e 's,/usr/share/icewm/logout_d/,,'`
   if [ -x $file ]; then 
     [ -e $userfile ] || . $file
   fi

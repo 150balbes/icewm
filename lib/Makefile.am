@@ -347,4 +347,4 @@ nobase_dist_pkgdata_DATA = \
 	shutdown_d\readme \
 	reboot_d\readme \
 	restart_d\readme \
-	startup_d\readme \
+	startup_d\readme

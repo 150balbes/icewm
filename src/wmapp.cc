@@ -1778,23 +1778,22 @@ void YWMApp::doLogout() {
 
 void YWMApp::logout() {
 	runScript("icewm_logout");
-
-//    if (logoutCommand && logoutCommand[0]) {
-//        runCommand(logoutCommand);
-//#ifdef CONFIG_SESSION
-//    } else if (haveSessionManager()) {
-//        smRequestShutdown();
-//#endif
-//    } else {
+    if (logoutCommand && logoutCommand[0]) {
+        runCommand(logoutCommand);
+#ifdef CONFIG_SESSION
+    } else if (haveSessionManager()) {
+        smRequestShutdown();
+#endif
+    } else {
         manager->wmCloseSession();
         // should we always do this??
         manager->exitAfterLastClient(true);
-//    }
+    }
 
-//    if (logoutMenu) {
-//        logoutMenu->disableCommand(actionLogout);
-//        logoutMenu->enableCommand(actionCancelLogout);
-//    }
+    if (logoutMenu) {
+        logoutMenu->disableCommand(actionLogout);
+        logoutMenu->enableCommand(actionCancelLogout);
+    }
 }
 
 void YWMApp::cancelLogout() {
@@ -1838,8 +1837,14 @@ void YWMApp::doReboot() {
 }
 
 void YWMApp::logout_reboot() {
-    runScript("icewm_reboot");
-//    runCommand(rebootCommand);
+//    runScript("icewm_reboot");
+    if (rebootCommand && rebootCommand[0]) {
+        runCommand(rebootCommand);
+#ifdef CONFIG_SESSION
+    } else if (haveSessionManager()) {
+        smRequestShutdown();
+#endif
+    }
 }
 
 void YWMApp::doShutdown() {
@@ -1864,8 +1869,14 @@ void YWMApp::doShutdown() {
 }
 
 void YWMApp::logout_shutdown() {
-    runScript("icewm_shutdown");
-//    runCommand(shutdownCommand);
+//    runScript("icewm_shutdown");
+    if (shutdownCommand && shutdownCommand[0]) {
+        runCommand(shutdownCommand);
+#ifdef CONFIG_SESSION
+    } else if (haveSessionManager()) {
+        smRequestShutdown();
+#endif
+    }
 }
 
 void YWMApp::handleMsgBox(YMsgBox *msgbox, int operation) {

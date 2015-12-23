@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # shutdown all system-wide icewm  programs
-for file in /etc/icewm/shutdown_d/*; do
-  userfile=~/.icewm/shutdown_d/`echo $file | sed -e 's,/etc/icewm/shutdown_d/,,'`
+for file in /usr/share/icewm/shutdown_d/*; do
+  userfile=~/.icewm/shutdown_d/`echo $file | sed -e 's,/usr/share/icewm/shutdown_d/,,'`
   # root can disable autostart removing 'execute' bits
   if [ -x $file ]; then 
     [ -e $userfile ] || . $file
