@@ -48,6 +48,25 @@ ColorScrollBarSlider="rgb:CC/CC/FF"
 ColorScrollBarButton="rgb:CC/CC/CC"
 ColorScrollBarButtonArrow="rgb:00/00/00"
 
+TitleFontNameXft		=	sans-serif:size=10:bold
+MenuFontNameXft			=	sans-serif:size=10
+MinimizedWindowFontNameXft	=	sans-serif:size=10
+ActiveButtonFontNameXft		=	sans-serif:size=10
+NormalButtonFontNameXft		=	sans-serif:size=10
+ToolButtonFontNameXft		=	sans-serif:size=10
+NormalWorkspaceFontNameXft	=	sans-serif:size=10
+ActiveWorkspaceFontNameXft	=	sans-serif:size=10
+QuickSwitchFontNameXft		=	sans-serif:size=10
+ListBoxFontNameXft		=	sans-serif:size=10
+StatusFontNameXft		=	sans-serif:size=10
+ToolTipFontNameXft		=	sans-serif:size=10
+ActiveTaskBarFontNameXft	=	sans-serif:size=10
+NormalTaskBarFontNameXft	=	sans-serif:size=10
+ClockFontNameXft		=	sans-serif:size=10
+InputFontNameXft		=	sans-serif:size=10
+LabelFontNameXft		=	sans-serif:size=10
+ApmFontNameXft			=	sans-serif:size=10
+
 DesktopBackgroundCenter=1
 DesktopBackgroundScaled=1
 #DesktopBackgroundColor="#3a6ea5"
