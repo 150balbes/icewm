@@ -5,7 +5,7 @@
 
 Name: icex
 Version: 1.3.12
-Release: alt4.1
+Release: alt5
 
 Summary: X11 Window Manager
 Group: Graphical desktop/Icewm
@@ -170,6 +170,9 @@ rm -rf %buildroot/%_datadir/xsessions
 %_datadir/%realname/themes/icedesert
 
 %changelog
+* Mon Dec 31 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt5
+- edit default theme
+
 * Mon Dec 25 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt4.1
 - edit Cmake
 
