@@ -5,7 +5,7 @@
 
 Name: icex
 Version: 1.3.12
-Release: alt5
+Release: alt5.1
 
 Summary: X11 Window Manager
 Group: Graphical desktop/Icewm
@@ -168,8 +168,12 @@ rm -rf %buildroot/%_datadir/xsessions
 %_datadir/%realname/themes/win95
 %_datadir/%realname/themes/yellowmotif
 %_datadir/%realname/themes/icedesert
+%_datadir/%realname/themes/WinClassic2
 
 %changelog
+* Mon Yan 02 2016 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt5.1
+- add theme WinClassic2
+
 * Mon Dec 31 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt5
 - edit default theme
 
