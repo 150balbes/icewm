@@ -169,6 +169,7 @@ rm -rf %buildroot/%_datadir/xsessions
 %_datadir/%realname/themes/yellowmotif
 %_datadir/%realname/themes/icedesert
 %_datadir/%realname/themes/WinClassic2
+%_datadir/%realname/themes/Elegance_ice
 
 %changelog
 * Mon Jan 02 2016 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt5.1
