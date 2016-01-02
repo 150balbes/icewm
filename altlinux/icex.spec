@@ -172,7 +172,7 @@ rm -rf %buildroot/%_datadir/xsessions
 
 %changelog
 * Mon Jan 02 2016 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt5.1
-- add theme WinClassic2
+- add theme WinClassic2 Elegance_ice
 
 * Mon Dec 31 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt5
 - edit default theme
