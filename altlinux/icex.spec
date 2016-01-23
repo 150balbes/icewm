@@ -5,7 +5,7 @@
 
 Name: icex
 Version: 1.3.12
-Release: alt5.1
+Release: alt5.2
 
 Summary: X11 Window Manager
 Group: Graphical desktop/Icewm
@@ -173,6 +173,9 @@ rm -rf %buildroot/%_datadir/xsessions
 %_datadir/%realname/themes/SilverXP
 
 %changelog
+* Mon Jan 23 2016 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt5.2
+- merge icewm-1-3-BRANCH  po/CMakeLists.txt
+
 * Mon Jan 02 2016 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt5.1
 - add theme WinClassic2 Elegance_ice SilverXP
 

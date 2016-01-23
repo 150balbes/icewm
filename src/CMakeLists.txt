@@ -379,7 +379,6 @@ if(NOT CMAKE_CROSSCOMPILING)
       COMMAND genpref${EXEEXT} > lib/preferences
       WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
    INSTALL(FILES ${CMAKE_BINARY_DIR}/lib/preferences DESTINATION ${LIBDIR})
-
 endif()
 
 #######################################
