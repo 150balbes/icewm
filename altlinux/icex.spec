@@ -5,7 +5,7 @@
 
 Name: icex
 Version: 1.3.12
-Release: alt5.5
+Release: alt6
 
 Summary: X11 Window Manager
 Group: Graphical desktop/Icewm
@@ -51,20 +51,6 @@ window list, mailbox status, digital clock. Fast and small.
 maintained on Github https://github.com/bbidulock/icewm
 
 Recommends: iftop, mutt
-
-%package theme-default
-Group: Graphical desktop/Icewm
-Summary: Extra themes for icewm default
-Summary(ru_RU.UTF-8): Дефолтные темы для IceWM
-###Requires: %name > 1.3.11
-AutoReq: no
-BuildArch: noarch
-
-%description theme-default
-Extra themes for icewm default
-%description -l ru_RU.UTF-8 theme-default
-Темы для IceWM по умолчанию.
-
 
 %prep
 %setup -n %name
@@ -156,23 +142,10 @@ rm -rf %buildroot/%_datadir/xsessions
 
 %doc AUTHORS NEWS README.ALT README.md BUILD/doc/*.html
 
-%files theme-default
-%_datadir/%realname/themes/Infadel2
-%_datadir/%realname/themes/gtk2
-%_datadir/%realname/themes/metal2
-%_datadir/%realname/themes/motif
-%_datadir/%realname/themes/nice
-%_datadir/%realname/themes/nice2
-%_datadir/%realname/themes/warp3
-%_datadir/%realname/themes/warp4
-%_datadir/%realname/themes/win95
-%_datadir/%realname/themes/yellowmotif
-%_datadir/%realname/themes/icedesert
-%_datadir/%realname/themes/WinClassic2
-%_datadir/%realname/themes/Elegance_ice
-%_datadir/%realname/themes/SilverXP
-
 %changelog
+* Mon Feb 27 2016 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt6
+- dell rpm themes
+
 * Mon Jan 23 2016 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt5.5
 - merge  src/yxtray.cc
 
