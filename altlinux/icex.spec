@@ -5,7 +5,7 @@
 
 Name: icex
 Version: 1.3.12
-Release: alt6
+Release: alt7
 
 Summary: X11 Window Manager
 Group: Graphical desktop/Icewm
@@ -143,6 +143,9 @@ rm -rf %buildroot/%_datadir/xsessions
 %doc AUTHORS NEWS README.ALT README.md BUILD/doc/*.html
 
 %changelog
+* Mon Feb 29 2016 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt7
+- merge ICEWM-BRANCH
+
 * Mon Feb 27 2016 Oleg Ivanov <Leo-sp150@yandex.ru> 1.3.12-alt6
 - dell rpm themes
 
